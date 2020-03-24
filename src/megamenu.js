@@ -873,7 +873,7 @@ export function buildMegaMenu() {
     menuHtml += desktopMenu;
     menuHtml += `
                 <div class="menu-search search-input">
-                    <input type="text" class="search-box" id="search" onkeydown="handleKeyDown($event)"/>
+                    <input type="text" class="search-box" id="search" />
                 </div>
             </div>
         </div>
@@ -881,33 +881,35 @@ export function buildMegaMenu() {
     menuHtml += mobileMenu;
 
     menuHtml += '</div>';
+     return menuHtml
 
-    if (typeof window !== 'undefined') {
-        document.getElementById("megamenu").innerHTML = menuHtml;
-        document.getElementById("menuToggle").addEventListener('click', function (event) {
-            isMenuOpened = !isMenuOpened;     
-            document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
-            //var html = document.getElementsByTagName("html")[0];    
-            //html.className = isMenuOpened?"content-translate":"";      
-            document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
-        });
-        document.getElementById("slide-bar").addEventListener('click', function (event) {
-            if (event.target.parentNode.className === "dropdown") {
-                var openedItems = document.getElementsByClassName("dropdown open");
-                for (let item of openedItems) {
-                    item.className = "dropdown"
-                }
-                event.target.parentNode.className = "dropdown open";
-            } else if (event.target.parentNode.className === "dropdown open") {
-                event.target.parentNode.className = "dropdown";
-            }
-        });
-        document.getElementById("search").addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-                search(event.target.value);
-            }
-        });
-    }
 };
-
-
+export function registerEvents(){
+if (typeof window !== 'undefined') {
+    //document.getElementById("sswmegamenu").innerHTML = menuHtml;
+    document.getElementById("menuToggle").addEventListener('click', function (event) {
+        isMenuOpened = !isMenuOpened;     
+        document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
+        //var html = document.getElementsByTagName("html")[0];    
+        //html.className = isMenuOpened?"content-translate":"";      
+        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+    });
+    document.getElementById("slide-bar").addEventListener('click', function (event) {
+        if (event.target.parentNode.className === "dropdown") {
+            var openedItems = document.getElementsByClassName("dropdown open");
+            for (let item of openedItems) {
+                item.className = "dropdown"
+            }
+            event.target.parentNode.className = "dropdown open";
+        } else if (event.target.parentNode.className === "dropdown open") {
+            event.target.parentNode.className = "dropdown";
+        }
+    });
+    document.getElementById("search").addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            search(event.target.value);
+        }
+    });
+    return true;
+}
+}

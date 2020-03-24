@@ -1,4 +1,16 @@
-
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.eot?v=4.4.0');
+  src: url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0')
+      format('embedded-opentype'),
+    url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'),
+    url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'),
+    url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'),
+    url('https://ssw.com.au//ssw/include/pigeon/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .col-md-3
  {
   position: relative;
@@ -32,7 +44,7 @@
 }
 #MegaMenu li.map:after {
   font-family: FontAwesome;
-  content: "\f3c5";
+  content: "\f041";
   padding: 0 3px 0;
 }
 
