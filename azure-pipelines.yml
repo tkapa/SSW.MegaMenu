@@ -20,8 +20,10 @@ steps:
     npm install
     npx webpack --config webpack.config.js
   displayName: 'npm install, run webpack'
-- task: Npm@1
+  
+- task: PublishBuildArtifacts@1
   inputs:
-    command: 'publish'
-    publishRegistry: 'useFeed'
-    publishFeed: '6da620c6-51ce-4249-acf3-303816557ddb'
+    PathtoPublish: 'dist'
+    ArtifactName: 'drop/dist'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifacts'
