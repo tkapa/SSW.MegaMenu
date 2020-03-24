@@ -1,7 +1,7 @@
 {
   "name": "ssw.megamenu",
   "version": "0.1.0",
-  "main": "dist/index.js",
+
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
