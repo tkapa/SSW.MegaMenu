@@ -25,15 +25,26 @@ steps:
     npx webpack
   displayName: 'run webpack'
 
-- task: ArchiveFiles@2
+- script: |
+    npm pack
+  displayName: 'Package for npm release'
+
+- task: CopyFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '*.tgz' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy npm package'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Publish Artifacts'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: npm
+  displayName: 'Publish npm artifact'
