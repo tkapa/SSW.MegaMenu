@@ -17,7 +17,8 @@ steps:
 
 - script:
     npm install
-    npm install webpack webpack-cli file-loader --save-dev    
+    npm install webpack webpack-cli file-loader --save-dev
+    npm version patch
     npx webpack
   displayName: 'npm install'
 
