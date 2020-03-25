@@ -17,7 +17,8 @@ steps:
 
 - script:
     npm install
-    npm install webpack webpack-cli --save-dev    
+    npm install webpack webpack-cli file-loader --save-dev
+    npm version patch
     npx webpack
   displayName: 'npm install'
 
@@ -25,15 +26,26 @@ steps:
     npx webpack
   displayName: 'run webpack'
 
-- task: ArchiveFiles@2
+- script: |
+    npm pack
+  displayName: 'Package for npm release'
+
+- task: CopyFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/dist'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '*.tgz' 
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy npm package'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy package.json'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Publish Artifacts'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: npm
+  displayName: 'Publish npm artifact'
