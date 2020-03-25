@@ -886,13 +886,16 @@ export function buildMegaMenu() {
 };
 export function registerEvents(){
 if (typeof window !== 'undefined') {
-    //document.getElementById("sswmegamenu").innerHTML = menuHtml;
+    var html = document.getElementsByTagName("html")[0]; 
+      
+    html.className = "content-translate";    
     document.getElementById("menuToggle").addEventListener('click', function (event) {
-        isMenuOpened = !isMenuOpened;     
+        isMenuOpened = !isMenuOpened;      
         document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
-        //var html = document.getElementsByTagName("html")[0];    
-        //html.className = isMenuOpened?"content-translate":"";      
-        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+        var html = document.getElementsByTagName("html")[0];    
+        html.style.marginLeft = isMenuOpened?"85%":"0px";      
+        document.getElementById("slide-bar").style.width = (isMenuOpened ?"84%":"0px");
+        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");   
     });
     document.getElementById("slide-bar").addEventListener('click', function (event) {
         if (event.target.parentNode.className === "dropdown") {

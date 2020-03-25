@@ -232,16 +232,21 @@
   cursor: pointer;
 }
 .sb-slidebar {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sb-slidebar {
   height: 100%;
-  width : 84%;
-  left: -84%;
+  width: 0px;
   overflow-y: auto;
+  overflow-x: hidden;
   position: fixed;
   top: 0;
   z-index: 50;
-  display: none;
-  background-color: #222;
   display: block;
+  background-color: #222;
 }
 .sb-left {
   left: 0;
@@ -446,28 +451,10 @@ a.ignore:after {
   background-clip: padding-box;
 }
 .sb-slidebar {
-  -webkit-transition: -webkit-transform 400ms ease;
-  -moz-transition: -moz-transform 400ms ease;
-  -o-transition: -o-transform 400ms ease;
-  transition: transform 400ms ease;
-  transition-property: transform;
-  -webkit-transition-property: -webkit-transform,left,right;
-  -webkit-backface-visibility: hidden;
+  transition: 400ms ease;
+  transition-property: width;
 }
 .content-translate {
-  transition: transform 400ms ease;
-  transform: translateX(85%);
-}
-.sb-slidebar {
-  height: 100%;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  display: none;
-  background-color: #222;
-  transform: translate(0);
-  -webkit-transform: translate(0);
-}
-.sb-slidebar.sb-active {
-  display: block;
+  transition: 400ms ease;
+  transition-property: "margin-left";
 }
