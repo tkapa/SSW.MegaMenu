@@ -1,6 +1,6 @@
-require('./megamenu.css');
-require('../node_modules/@fortawesome/fontawesome-free/css/all.css');
-require('@fortawesome/fontawesome-free/js/all');
+import './megamenu.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import '../node_modules/@fortawesome/fontawesome-free/js/all';
 
 const menuItems = [
     {
@@ -791,7 +791,7 @@ function createLevel1(items, mobile) {
         }
         currentIndex++;
         level1 += ` <li class='${level1Item.navigateUrlOnMobileOnly && !mobile ? "NonClickableMenuItem level1" : "level1"}' >
-                        <a href=${level1Item.navigateUrlOnMobileOnly ? level1Item.navigateUrl : "javascript:void(0)"}  class="ignore">
+                        <a href=${(level1Item.navigateUrlOnMobileOnly && mobile) || !level1Item.navigateUrlOnMobileOnly ? level1Item.navigateUrl : "javascript:void(0)"}  class="ignore">
                             ${level1Item.text}
                         </a>
                     </li>
