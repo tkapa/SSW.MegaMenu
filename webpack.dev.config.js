@@ -3,17 +3,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
-  plugins: [
+  mode: "development",
+  plugins: [new HtmlWebpackPlugin({}),
     new MiniCssExtractPlugin({
     filename: 'megamenu.css',
     chunkFilename: '[id].[contenthash].css',
   })],
-  target: "node",
+  target: "web",
   //entry: './src/components/megamenu/megamenu.js',
-  entry: './src/megamenu.js',
+ // entry: './src/megamenu.js',
+  entry: {
+      app: './index.js',
+      megamenu: './src/megamenu.js',
+     },
   output: {
     path: path.resolve('dist'),
-    filename: 'megamenu.js',
+    filename: '[name].js',
     library: 'MegaMenu',
     libraryTarget: 'umd',
     publicPath: '/dist/',
@@ -21,6 +26,12 @@ module.exports = {
   },
   optimization: {
     minimize: false
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
+    compress: true,
+    port: 9000
   },
   module: {
     rules: [
