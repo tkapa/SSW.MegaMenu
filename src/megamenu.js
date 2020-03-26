@@ -897,9 +897,10 @@ export function registerMobileEvents(){
     });
 }
 
+ 
 export function registerEvents(){
 if (typeof window !== 'undefined') {
-    var mainContainer = document.getElementsByClassName("main-container")[0];  
+    var mainContainer = document.getElementsByClassName("main-container")[0]; 
     mainContainer.style.transition= "transform 400ms ease";   
     document.getElementById("menuToggle").addEventListener('click', function (event) {
         isMenuOpened = !isMenuOpened;      
@@ -908,6 +909,19 @@ if (typeof window !== 'undefined') {
         //html.style.marginLeft = isMenuOpened?"85vw":"0px";      
         document.getElementById("slide-bar").style.width = (isMenuOpened ?"84vw":"0px");
         document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");   
+        
+        var clickOutside = ()=>{ 
+            isMenuOpened = false;
+            mainContainer.style.transform = "translateX(0px)" ;
+            document.getElementById("slide-bar").style.width = "0px";
+            document.getElementById("slide-bar").className = "sb-slidebar sb-left ";     
+         };
+         event.stopPropagation();
+        if(isMenuOpened){
+            mainContainer.addEventListener('click', clickOutside);
+        } else{
+            mainContainer.removeEventListener('click', clickOutside);
+        }
     });
     document.getElementById("search").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
