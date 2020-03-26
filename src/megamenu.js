@@ -2,6 +2,9 @@ import './megamenu.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
 
+var isMenuOpened = false;
+const searchUrl = `https://www.google.com.au/search?q=site:ssw.com.au%20`;
+
 const menuItems = [
     {
         text: 'Services',
@@ -820,19 +823,11 @@ function createLevel2(items, countChildren, currentIndex, currentColumn) {
 
 function search(search) {
     if (window) {
-        window.location.href = `https://www.google.com.au/search?q=site:ssw.com.au%20${search}`;
+        window.location.href = searchUrl + search;
     }
 };
 
-function handleKeyDown(e) {
-    if (e.key === 'Enter') {
-        search(e.target.value);
-    }
-}
-
-var isMenuOpened = false;
-
-export function buildMobileMenu() {
+function buildMobileMenu() {
     let mobileMenu = `<div class="sb-slidebar sb-left" id="slide-bar">
       <div class="menu-drop navbar-collapse">
         <ul class="nav navbar-nav">`;
@@ -858,9 +853,9 @@ export function buildMobileMenu() {
 }
 
 
-export function buildMegaMenu() {
+function buildMegaMenu() {
     const desktopMenu = buildDesktopMenu();
-    
+
     var menuHtml = `
         <div id="MegaMenu">
             <div class="menu-content">
@@ -879,11 +874,11 @@ export function buildMegaMenu() {
         </div>
     <div>`;
     menuHtml += '</div>';
-     return menuHtml
+    return menuHtml
 
 };
 
-export function registerMobileEvents(){
+function registerMobileEvents() {
     document.getElementById("slide-bar").addEventListener('click', function (event) {
         if (event.target.parentNode.className === "dropdown") {
             var openedItems = document.getElementsByClassName("dropdown open");
@@ -897,37 +892,45 @@ export function registerMobileEvents(){
     });
 }
 
- 
-export function registerEvents(){
-if (typeof window !== 'undefined') {
-    var mainContainer = document.getElementsByClassName("main-container")[0]; 
-    mainContainer.style.transition= "transform 400ms ease";   
-    document.getElementById("menuToggle").addEventListener('click', function (event) {
-        isMenuOpened = !isMenuOpened;      
-        //document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
-        mainContainer.style.transform = isMenuOpened?"translateX(84%)":"translateX(0px)" ;  
-        //html.style.marginLeft = isMenuOpened?"85vw":"0px";      
-        document.getElementById("slide-bar").style.width = (isMenuOpened ?"84vw":"0px");
-        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");   
-        
-        var clickOutside = ()=>{ 
-            isMenuOpened = false;
-            mainContainer.style.transform = "translateX(0px)" ;
-            document.getElementById("slide-bar").style.width = "0px";
-            document.getElementById("slide-bar").className = "sb-slidebar sb-left ";     
-         };
-         event.stopPropagation();
-        if(isMenuOpened){
-            mainContainer.addEventListener('click', clickOutside);
-        } else{
-            mainContainer.removeEventListener('click', clickOutside);
-        }
-    });
+
+function registerEvents() {
+    if (typeof window !== 'undefined') {
+        addMobileMenuToggleEvent();
+        addSearchEvent();
+        return true;
+    }
+}
+
+function addSearchEvent() {
     document.getElementById("search").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             search(event.target.value);
         }
     });
-    return true;
 }
+
+function addMobileMenuToggleEvent() {
+    var mainContainer = document.getElementsByClassName("main-container")[0];
+    mainContainer.style.transition = "transform 400ms ease";
+    document.getElementById("menuToggle").addEventListener('click', function (event) {
+        isMenuOpened = !isMenuOpened;
+        mainContainer.style.transform = isMenuOpened ? "translateX(84%)" : "translateX(0px)";
+        document.getElementById("slide-bar").style.width = (isMenuOpened ? "84vw" : "0px");
+        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+
+        var clickOutside = () => {
+            isMenuOpened = false;
+            mainContainer.style.transform = "translateX(0px)";
+            document.getElementById("slide-bar").style.width = "0px";
+            document.getElementById("slide-bar").className = "sb-slidebar sb-left ";
+        };
+        event.stopPropagation();
+        if (isMenuOpened) {
+            mainContainer.addEventListener('click', clickOutside);
+        } else {
+            mainContainer.removeEventListener('click', clickOutside);
+        }
+    });
 }
+
+export { buildMobileMenu, buildMegaMenu, registerEvents, registerMobileEvents };

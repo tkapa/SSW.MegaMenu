@@ -29,8 +29,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "start:dev": "concurrently --kill-others \"npm run dev\" \"webpack-dev-server --config ./webpack.dev.config.js\"",
-    "dev": "webpack --watch --config ./webpack.dev.config.js",
+    "dev": "concurrently --kill-others \"npm run watch\" \"webpack-dev-server --config ./webpack.dev.config.js\"",
+    "watch": "webpack --watch --config ./webpack.dev.config.js",
     "build": "npm run prebuild && webpack --mode production",
     "prebuild": "rimraf dist"
   },
