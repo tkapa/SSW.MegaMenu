@@ -6,8 +6,7 @@ module.exports = {
   mode: "development",
   plugins: [new HtmlWebpackPlugin({}),
     new MiniCssExtractPlugin({
-    filename: 'megamenu.css',
-    chunkFilename: '[id].[contenthash].css',
+    filename: 'megamenu.css'
   })],
   target: "web",
   //entry: './src/components/megamenu/megamenu.js',

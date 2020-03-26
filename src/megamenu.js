@@ -832,7 +832,7 @@ function handleKeyDown(e) {
 
 var isMenuOpened = false;
 
-function buildMobileMenu() {
+export function buildMobileMenu() {
     let mobileMenu = `<div class="sb-slidebar sb-left" id="slide-bar">
       <div class="menu-drop navbar-collapse">
         <ul class="nav navbar-nav">`;
@@ -860,7 +860,7 @@ function buildMobileMenu() {
 
 export function buildMegaMenu() {
     const desktopMenu = buildDesktopMenu();
-    const mobileMenu = buildMobileMenu();
+    
     var menuHtml = `
         <div id="MegaMenu">
             <div class="menu-content">
@@ -878,25 +878,12 @@ export function buildMegaMenu() {
             </div>
         </div>
     <div>`;
-    menuHtml += mobileMenu;
-
     menuHtml += '</div>';
      return menuHtml
 
 };
-export function registerEvents(){
-if (typeof window !== 'undefined') {
-    var html = document.getElementsByTagName("html")[0]; 
-      
-    html.className = "content-translate";    
-    document.getElementById("menuToggle").addEventListener('click', function (event) {
-        isMenuOpened = !isMenuOpened;      
-        document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
-        var html = document.getElementsByTagName("html")[0];    
-        html.style.marginLeft = isMenuOpened?"85%":"0px";      
-        document.getElementById("slide-bar").style.width = (isMenuOpened ?"84%":"0px");
-        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");   
-    });
+
+export function registerMobileEvents(){
     document.getElementById("slide-bar").addEventListener('click', function (event) {
         if (event.target.parentNode.className === "dropdown") {
             var openedItems = document.getElementsByClassName("dropdown open");
@@ -907,6 +894,20 @@ if (typeof window !== 'undefined') {
         } else if (event.target.parentNode.className === "dropdown open") {
             event.target.parentNode.className = "dropdown";
         }
+    });
+}
+
+export function registerEvents(){
+if (typeof window !== 'undefined') {
+    var mainContainer = document.getElementsByClassName("main-container")[0];  
+    mainContainer.style.transition= "transform 400ms ease";   
+    document.getElementById("menuToggle").addEventListener('click', function (event) {
+        isMenuOpened = !isMenuOpened;      
+        //document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
+        mainContainer.style.transform = isMenuOpened?"translateX(84%)":"translateX(0px)" ;  
+        //html.style.marginLeft = isMenuOpened?"85vw":"0px";      
+        document.getElementById("slide-bar").style.width = (isMenuOpened ?"84vw":"0px");
+        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");   
     });
     document.getElementById("search").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {

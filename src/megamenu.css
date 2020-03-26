@@ -462,6 +462,6 @@ a.ignore:after {
   transition-property: width;
 }
 .content-translate {
-  transition: 400ms ease;
-  transition-property: "margin-left";
+  transition: transform 400ms ease;
+  transform: translateX(84%);
 }

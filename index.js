@@ -1,9 +1,18 @@
-import {buildMegaMenu, registerEvents} from './src/megamenu.js';
+import {buildMegaMenu,buildMobileMenu, registerEvents, registerMobileEvents} from './src/megamenu.js';
 
-  function component() {
+function mobilemenu() {
     const element = document.createElement('div');
-    element.innerHTML = buildMegaMenu();
+    element.innerHTML = buildMobileMenu();
+    return element;
+}
+
+  function desktopMenu() {
+    const element = document.createElement('div');
+    element.className="main-container";
+    element.innerHTML = buildMegaMenu() ;
     return element;
   }
-  document.body.appendChild(component());
+  document.body.appendChild(desktopMenu());
+  document.body.appendChild(mobilemenu());
   registerEvents();
+  registerMobileEvents();
