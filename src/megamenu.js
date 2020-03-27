@@ -1,6 +1,9 @@
-require('./megamenu.css');
-require('../node_modules/@fortawesome/fontawesome-free/css/all.css');
-require('@fortawesome/fontawesome-free/js/all');
+import './megamenu.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
+
+var isMenuOpened = false;
+const searchUrl = `https://www.google.com.au/search?q=site:ssw.com.au%20`;
 
 const menuItems = [
     {
@@ -791,7 +794,7 @@ function createLevel1(items, mobile) {
         }
         currentIndex++;
         level1 += ` <li class='${level1Item.navigateUrlOnMobileOnly && !mobile ? "NonClickableMenuItem level1" : "level1"}' >
-                        <a href=${level1Item.navigateUrlOnMobileOnly ? level1Item.navigateUrl : "javascript:void(0)"}  class="ignore">
+                        <a href=${(level1Item.navigateUrlOnMobileOnly && mobile) || !level1Item.navigateUrlOnMobileOnly ? level1Item.navigateUrl : "javascript:void(0)"}  class="ignore">
                             ${level1Item.text}
                         </a>
                     </li>
@@ -820,17 +823,9 @@ function createLevel2(items, countChildren, currentIndex, currentColumn) {
 
 function search(search) {
     if (window) {
-        window.location.href = `https://www.google.com.au/search?q=site:ssw.com.au%20${search}`;
+        window.location.href = searchUrl + search;
     }
 };
-
-function handleKeyDown(e) {
-    if (e.key === 'Enter') {
-        search(e.target.value);
-    }
-}
-
-var isMenuOpened = false;
 
 function buildMobileMenu() {
     let mobileMenu = `<div class="sb-slidebar sb-left" id="slide-bar">
@@ -858,9 +853,9 @@ function buildMobileMenu() {
 }
 
 
-export function buildMegaMenu() {
+function buildMegaMenu() {
     const desktopMenu = buildDesktopMenu();
-    const mobileMenu = buildMobileMenu();
+
     var menuHtml = `
         <div id="MegaMenu">
             <div class="menu-content">
@@ -878,22 +873,12 @@ export function buildMegaMenu() {
             </div>
         </div>
     <div>`;
-    menuHtml += mobileMenu;
-
     menuHtml += '</div>';
-     return menuHtml
+    return menuHtml
 
 };
-export function registerEvents(){
-if (typeof window !== 'undefined') {
-    //document.getElementById("sswmegamenu").innerHTML = menuHtml;
-    document.getElementById("menuToggle").addEventListener('click', function (event) {
-        isMenuOpened = !isMenuOpened;     
-        document.getElementById("MegaMenu").className = isMenuOpened?"content-translate":""; 
-        //var html = document.getElementsByTagName("html")[0];    
-        //html.className = isMenuOpened?"content-translate":"";      
-        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
-    });
+
+function registerMobileEvents() {
     document.getElementById("slide-bar").addEventListener('click', function (event) {
         if (event.target.parentNode.className === "dropdown") {
             var openedItems = document.getElementsByClassName("dropdown open");
@@ -905,11 +890,47 @@ if (typeof window !== 'undefined') {
             event.target.parentNode.className = "dropdown";
         }
     });
+}
+
+
+function registerEvents() {
+    if (typeof window !== 'undefined') {
+        addMobileMenuToggleEvent();
+        addSearchEvent();
+        return true;
+    }
+}
+
+function addSearchEvent() {
     document.getElementById("search").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             search(event.target.value);
         }
     });
-    return true;
 }
+
+function addMobileMenuToggleEvent() {
+    var mainContainer = document.getElementsByClassName("main-container")[0];
+    mainContainer.style.transition = "transform 400ms ease";
+    document.getElementById("menuToggle").addEventListener('click', function (event) {
+        isMenuOpened = !isMenuOpened;
+        mainContainer.style.transform = isMenuOpened ? "translateX(84%)" : "translateX(0px)";
+        document.getElementById("slide-bar").style.width = (isMenuOpened ? "84vw" : "0px");
+        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+
+        var clickOutside = () => {
+            isMenuOpened = false;
+            mainContainer.style.transform = "translateX(0px)";
+            document.getElementById("slide-bar").style.width = "0px";
+            document.getElementById("slide-bar").className = "sb-slidebar sb-left ";
+        };
+        event.stopPropagation();
+        if (isMenuOpened) {
+            mainContainer.addEventListener('click', clickOutside);
+        } else {
+            mainContainer.removeEventListener('click', clickOutside);
+        }
+    });
 }
+
+export { buildMobileMenu, buildMegaMenu, registerEvents, registerMobileEvents };
