@@ -6,6 +6,28 @@ This project is the megamenu from www.ssw.com.au as a pure javascript component.
 - registerEvents(): must be called after 'buildMegaMenu()' to activate events for the search input and the mobile menu toggle
 - registerMobileEvents(): must be called after 'buildMobileMenu()' to activate events for the side bar menu
 
+## How to use
+This is an exemple of how to use the component, it can vary depending on the framework of your application.
+
+```
+<div class="main-container">
+    ...website content
+    <div id="sswmegamenu"></div>
+    ...more website content
+</div>
+<div id="mobilemenu"></div>
+
+<script>
+ document.getElementById("sswmegamenu").innerHTML = buildMegaMenu();
+ document.getElementById("mobilemenu").innerHTML = buildMobileMenu();
+ registerEvents();
+ registerMobileEvents();
+</script>
+```
+
+The div with the class name "main-container" is necessary to get the website content pushed when opening the mobile menu.
+The mobile menu should sit outside the main container.
+
 ## Available Scripts
 
 In the project directory, you can run:
