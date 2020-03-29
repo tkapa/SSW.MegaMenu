@@ -1,6 +1,6 @@
 {
   "name": "ssw.megamenu",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "megamenu.js",
   "files": [
     "dist"

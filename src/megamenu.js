@@ -910,27 +910,29 @@ function addSearchEvent() {
 }
 
 function addMobileMenuToggleEvent() {
-    var mainContainer = document.getElementsByClassName("main-container")[0];
-    mainContainer.style.transition = "transform 400ms ease";
-    document.getElementById("menuToggle").addEventListener('click', function (event) {
-        isMenuOpened = !isMenuOpened;
-        mainContainer.style.transform = isMenuOpened ? "translateX(84%)" : "translateX(0px)";
-        document.getElementById("slide-bar").style.width = (isMenuOpened ? "84vw" : "0px");
-        document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+    if(document.getElementsByClassName("main-container") && document.getElementsByClassName("main-container").length>0){
+        var mainContainer = document.getElementsByClassName("main-container")[0];
+        mainContainer.style.transition = "transform 400ms ease";
+        document.getElementById("menuToggle").addEventListener('click', function (event) {
+            isMenuOpened = !isMenuOpened;
+            mainContainer.style.transform = isMenuOpened ? "translateX(84%)" : "translateX(0px)";
+            document.getElementById("slide-bar").style.width = (isMenuOpened ? "84vw" : "0px");
+            document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
 
-        var clickOutside = () => {
-            isMenuOpened = false;
-            mainContainer.style.transform = "translateX(0px)";
-            document.getElementById("slide-bar").style.width = "0px";
-            document.getElementById("slide-bar").className = "sb-slidebar sb-left ";
-        };
-        event.stopPropagation();
-        if (isMenuOpened) {
-            mainContainer.addEventListener('click', clickOutside);
-        } else {
-            mainContainer.removeEventListener('click', clickOutside);
-        }
-    });
+            var clickOutside = () => {
+                isMenuOpened = false;
+                mainContainer.style.transform = "translateX(0px)";
+                document.getElementById("slide-bar").style.width = "0px";
+                document.getElementById("slide-bar").className = "sb-slidebar sb-left ";
+            };
+            event.stopPropagation();
+            if (isMenuOpened) {
+                mainContainer.addEventListener('click', clickOutside);
+            } else {
+                mainContainer.removeEventListener('click', clickOutside);
+            }
+        });
+    }
 }
 
 export { buildMobileMenu, buildMegaMenu, registerEvents, registerMobileEvents };
