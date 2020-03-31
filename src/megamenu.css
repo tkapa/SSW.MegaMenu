@@ -397,8 +397,9 @@
 }
 .sb-slidebar .menu-drop ul li a svg,
 .sb-slidebar .menu-drop ul li a:link svg {
-  float: right;
+  float: inline-end;
   line-height: 35px;
+  height: 2em;
 }
 .sb-slidebar .menu-drop ul li.open > a,
 .sb-slidebar .menu-drop ul li.open > a:link {
