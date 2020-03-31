@@ -878,20 +878,36 @@ function buildMegaMenu() {
 
 };
 
+function closeOpenedElements(){
+    var openedItems = document.getElementsByClassName("dropdown open");
+    for (let item of openedItems) {
+        item.className = "dropdown"
+    }
+}
+
+function openElement(element){
+    element.className = "dropdown open";
+}
+
+function closeElement(element){
+    element.className = "dropdown";
+}
+
 function registerMobileEvents() {
     document.getElementById("slide-bar").addEventListener('click', function (event) {
-        if (event.target.parentNode.className === "dropdown") {
-            var openedItems = document.getElementsByClassName("dropdown open");
-            for (let item of openedItems) {
-                item.className = "dropdown"
-            }
-            event.target.parentNode.className = "dropdown open";
+        if (event.target.parentNode.className === "dropdown" ) {
+            closeOpenedElements()
+            openElement(event.target.parentNode);
+        } else if (event.target.parentNode.parentNode.className === "dropdown" ) {
+            closeOpenedElements();
+            openElement(event.target.parentNode.parentNode);
         } else if (event.target.parentNode.className === "dropdown open") {
-            event.target.parentNode.className = "dropdown";
+            closeElement(event.target.parentNode);
+        } else if (event.target.parentNode.parentNode.className === "dropdown open") {
+            closeElement(event.target.parentNode.parentNode);
         }
     });
 }
-
 
 function registerEvents() {
     if (typeof window !== 'undefined') {
