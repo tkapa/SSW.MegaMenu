@@ -8,11 +8,11 @@ function mobilemenu() {
 
   function desktopMenu() {
     const element = document.createElement('div');
-    element.className="main-container";
+    element.id="main-container";
     element.innerHTML = buildMegaMenu() ;
     return element;
   }
   document.body.appendChild(desktopMenu());
   document.body.appendChild(mobilemenu());
-  registerEvents();
+  registerEvents("main-container");
   registerMobileEvents();

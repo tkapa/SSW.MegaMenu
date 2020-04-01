@@ -1,5 +1,5 @@
 import './megamenu.css';
-import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+//import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
 
 var isMenuOpened = false;
@@ -765,7 +765,7 @@ function buildDesktopMenu() {
                             </a>
                             <div class="Menu">
                                 <div class="MenuImg">
-                                <img src=${item.groupImageUrl} />
+                                <img src=${item.groupImageUrl} loading="lazy"/>
                                 </div>
                                 <div class="MenuWrapper row">
                                 ${createLevel1(item.children)}
@@ -909,9 +909,9 @@ function registerMobileEvents() {
     });
 }
 
-function registerEvents() {
+function registerEvents(mainContentElementId, mobileMenuOpeningCallBack) {
     if (typeof window !== 'undefined') {
-        addMobileMenuToggleEvent();
+        addMobileMenuToggleEvent(mainContentElementId, mobileMenuOpeningCallBack);
         addSearchEvent();
         return true;
     }
@@ -925,15 +925,19 @@ function addSearchEvent() {
     });
 }
 
-function addMobileMenuToggleEvent() {
-    if(document.getElementsByClassName("main-container") && document.getElementsByClassName("main-container").length>0){
-        var mainContainer = document.getElementsByClassName("main-container")[0];
+function addMobileMenuToggleEvent(mainContentElementId, mobileMenuOpeningCallBack) {
+    if(document.getElementById(mainContentElementId)){
+        var mainContainer = document.getElementById(mainContentElementId);
         mainContainer.style.transition = "transform 400ms ease";
         document.getElementById("menuToggle").addEventListener('click', function (event) {
             isMenuOpened = !isMenuOpened;
             mainContainer.style.transform = isMenuOpened ? "translateX(84%)" : "translateX(0px)";
             document.getElementById("slide-bar").style.width = (isMenuOpened ? "84vw" : "0px");
             document.getElementById("slide-bar").className = "sb-slidebar sb-left " + (isMenuOpened ? "sb-active" : "");
+
+            if(mobileMenuOpeningCallBack){
+                mobileMenuOpeningCallBack(isMenuOpened);
+            }
 
             var clickOutside = () => {
                 isMenuOpened = false;
