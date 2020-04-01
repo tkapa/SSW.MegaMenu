@@ -944,6 +944,9 @@ function addMobileMenuToggleEvent(mainContentElementId, mobileMenuOpeningCallBac
                 mainContainer.style.transform = "translateX(0px)";
                 document.getElementById("slide-bar").style.width = "0px";
                 document.getElementById("slide-bar").className = "sb-slidebar sb-left ";
+                if(mobileMenuOpeningCallBack){
+                    mobileMenuOpeningCallBack(isMenuOpened);
+                }
             };
             event.stopPropagation();
             if (isMenuOpened) {
