@@ -379,11 +379,18 @@
                         "text": "Xamarin Hack Days",
                         "cssClass": "Popular"
                     },
-                    { "navigateUrl": "https://aihackday.com", "text": "AI Hack Days", "cssClass": "Popular" },
-
+                    { 
+                        "navigateUrl": "https://aihackday.com", 
+                        "text": "AI Hack Days", 
+                        "cssClass": "Popular" 
+                    },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Events/Training/Angular-Workshop.aspx",
-                        "text": "The Angular 2-Day Workshop"
+                        "text": "Angular 2-Day Workshop"
+                    },
+                    {
+                        "navigateUrl": "https://www.ssw.com.au/ssw/Events/Training/Clean-Architecture-Workshop.aspx",
+                        "text": "Clean Architecture 2-Day Workshop"
                     },
 
                     {
