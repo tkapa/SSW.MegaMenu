@@ -18,13 +18,8 @@ steps:
 - script:
     npm install
     npm install webpack webpack-cli file-loader mini-css-extract-plugin --save-dev
-    npm version patch
-    npx webpack
+    npx webpack --mode production
   displayName: 'npm install'
-
-- script:  
-    npx webpack
-  displayName: 'run webpack'
 
 - script: |
     npm pack
