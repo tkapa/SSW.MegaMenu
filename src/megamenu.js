@@ -1,6 +1,6 @@
 import './megamenu.css';
 //import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
+import '../node_modules/@fortawesome/fontawesome-free/js/all.min';
 import itemsJson from './menu.json';
 
 var isMenuOpened = false;
