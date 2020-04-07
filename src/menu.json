@@ -89,6 +89,11 @@
                 "navigateUrlOnMobileOnly": true,
                 "children": [
                     {
+                        "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Remote-Work.aspx",
+                        "text": "Remote work",
+                        "cssClass": "Popular"
+                    },
+                    {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Chinafy-App.aspx",
                         "text": "Bring Your Apps to China",
                         "cssClass": "Popular"
@@ -348,7 +353,7 @@
                 "breakListBefore": true,
                 "children": [
                     {
-                        "navigateUrl": "https://ssw.zendesk.com",
+                        "navigateUrl": "https://pdi-ssw.zendesk.com/hc",
                         "text": "Knowledge Base"
                     },
                     {
