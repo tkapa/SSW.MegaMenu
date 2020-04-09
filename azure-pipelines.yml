@@ -17,8 +17,7 @@ steps:
 
 - script:
     npm install
-    npm install webpack webpack-cli file-loader mini-css-extract-plugin --save-dev
-    npx webpack --mode production
+    npm run build
   displayName: 'npm install'
 
 - script: |
