@@ -2,7 +2,7 @@
     "menuItems" : [
     {
         "text": "Services",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-Services.png",
+        "groupImageUrl": "Menu-Banner-Services.png",
         "children": [
             {
                 "text": "All Services",
@@ -51,7 +51,7 @@
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Enterprise-Reporting.aspx",
-                        "text": "Enterprise Reporting &amp; BI"
+                        "text": "Enterprise Reporting & BI"
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Power-BI.aspx",
@@ -71,7 +71,7 @@
                 "children": [
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/UI-UX-Design.aspx",
-                        "text": "UI &amp; UX Design Showcase"
+                        "text": "UI & UX Design Showcase"
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Video-Production",
@@ -140,11 +140,11 @@
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/ArtificialIntelligence.aspx",
-                        "text": "AI &amp; Machine Learning"
+                        "text": "AI & Machine Learning"
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Smart-Office-and-Smart-Home.aspx",
-                        "text": "Smart Office &amp; Smart Home"
+                        "text": "Smart Office & Smart Home"
                     },
                     {
                         "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Access-Database-Upsizing.aspx",
@@ -270,7 +270,7 @@
 
     {
         "text": "Products",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-Products.png",
+        "groupImageUrl": "Menu-Banner-Products.png",
         "children": [
             {
                 "navigateUrl":
@@ -366,7 +366,7 @@
     },
     {
         "text": "Training",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-Training.png",
+        "groupImageUrl": "Menu-Banner-Training.png",
         "children": [
             {
                 "navigateUrl": "https://www.ssw.com.au/ssw/Events/?upcomingeventsonly=false",
@@ -502,7 +502,7 @@
 
     {
         "text": "User Group",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-UserGroup.png",
+        "groupImageUrl": "Menu-Banner-UserGroup.png",
         "children": [
             {
                 "navigateUrl": "https://www.ssw.com.au/ssw/NETUG/Sydney.aspx",
@@ -611,7 +611,7 @@
 
     {
         "text": "Rules",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-Standards.png",
+        "groupImageUrl": "Menu-Banner-Standards.png",
         "children": [
             {
                 "navigateUrl": "https://rules.ssw.com.au/Pages/default.aspx",
@@ -666,7 +666,7 @@
     },
     {
         "text": "About Us",
-        "groupImageUrl": "https://www.ssw.com.au/ssw/images/Menu-Banner-AboutUs.png",
+        "groupImageUrl": "Menu-Banner-AboutUs.png",
         "children": [
             { "navigateUrl": "https://www.ssw.com.au/ssw/Company/AboutUs.aspx", "text": "About Us" },
             { "navigateUrl": "https://www.ssw.com.au/ssw/Company/Awards.aspx", "text": "Awards" },
