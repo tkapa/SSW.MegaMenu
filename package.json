@@ -1,6 +1,10 @@
 {
   "name": "ssw.megamenu",
+<<<<<<< HEAD
+  "version": "2.0.2",
+=======
   "version": "2.0.1",
+>>>>>>> a38947201e8da1a1d50f1599a98cc39f56c3dec9
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
