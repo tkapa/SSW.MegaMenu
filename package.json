@@ -1,5 +1,5 @@
 {
-  "name": "@ssw/ssw.megamenu",
+  "name": "ssw.megamenu",
   "version": "2.0.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
