@@ -8,15 +8,15 @@ import cs from 'classnames';
 const searchUrl = `https://www.google.com.au/search?q=site:ssw.com.au%20`;
 
 const Menu = ({ onClickToggle }) => {
-    const search = (search) => {
+    const menu_Search = (search) => {
         if (window) {
-            window.location.href = searchUrl + search;
+            window.open(searchUrl + search);
         }
     };
 
-    const handleKeyDown = (event) => {
+    const handleKeyDownOnMenuSearchInput = (event) => {
         if (event.key === 'Enter') {
-            search(event.target.value);
+            menu_Search(event.target.value);
         }
     }
 
@@ -30,7 +30,7 @@ const Menu = ({ onClickToggle }) => {
                 </div>
                 <DesktopMenu></DesktopMenu>
                 <div className={styles.menuSearch}>
-                    <input type="text" className={styles.searchBox} onKeyDown={(event) => handleKeyDown(event)} />
+                    <input type="text" className={styles.searchBox} onKeyDown={(event) => handleKeyDownOnMenuSearchInput(event)} />
                 </div>
             </div>
         </div>
