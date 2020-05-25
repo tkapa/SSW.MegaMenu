@@ -7,7 +7,7 @@ import cs from 'classnames';
 
 const searchUrl = `https://www.google.com.au/search?q=site:ssw.com.au%20`;
 
-const Menu = ({ onClickToggle }) => {
+const Menu = ({ onClickToggle, prefix }) => {
     const menu_Search = (search) => {
         if (window) {
             window.open(searchUrl + search);
@@ -28,7 +28,7 @@ const Menu = ({ onClickToggle }) => {
                         <FontAwesomeIcon icon={faBars} />
                     </div>
                 </div>
-                <DesktopMenu></DesktopMenu>
+                <DesktopMenu prefix={prefix}></DesktopMenu>
                 <div className={styles.menuSearch}>
                     <input type="text" className={styles.searchBox} onKeyDown={(event) => handleKeyDownOnMenuSearchInput(event)} />
                 </div>
