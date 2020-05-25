@@ -26,7 +26,7 @@ function App() {
         <header className="App-header">
           Test MegaMenu
         </header>
-        <Menu onClickToggle= {() => actionOnToggleClick() }></Menu>
+        <Menu onClickToggle= {() => actionOnToggleClick() } prefix=""></Menu>
         <div> Some content</div>
       </div>
       <MobileMenu isMenuOpened= {isMenuOpened}></MobileMenu>

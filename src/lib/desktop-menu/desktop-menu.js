@@ -7,7 +7,18 @@ import Dropdown from '../dropdown/dropdown';
 
 let menuModel = require('../data/menu.json');
 
-const DesktopMenu = () => {
+const DesktopMenu = ({prefix}) => {
+
+  const getRootUrl= () => {
+    if (prefix){
+   return (
+    window.location.origin 
+        ? window.location.origin + '/'
+        : window.location.protocol + '/' + window.location.host + '/')+prefix + '/';
+      }
+};
+
+
   return (
     <div className={cs(styles.menuDrop, styles.hiddenXs, styles.hiddenSm)}>
       <ul>
@@ -28,7 +39,7 @@ const DesktopMenu = () => {
                   </a>
                   <div className={styles.Menu}>
                     <div className={styles.MenuImg}>
-                      <img src={require("../images/" + item.groupImageUrl)} loading="lazy" />
+                      <img src={getRootUrl()+require("../images/" + item.groupImageUrl)} loading="lazy" />
                     </div>
                     <Dropdown items={item.children}></Dropdown>
                   </div>
