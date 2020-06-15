@@ -10,7 +10,7 @@ let menuModel = require('../data/menu.json');
 const DesktopMenu = ({prefix}) => {
 
   const getRootUrl= () => {
-    if (prefix){
+    if (prefix && typeof window !== 'undefined'){
    return (
     window.location.origin 
         ? window.location.origin + '/'
