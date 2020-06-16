@@ -66,6 +66,10 @@
                     "navigateUrlOnMobileOnly": true,
                     "children": [
                         {
+                            "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/Product-Design.aspx",
+                            "text": "Product Design"
+                        },
+                        {
                             "navigateUrl": "https://www.ssw.com.au/ssw/Consulting/UI-UX-Design.aspx",
                             "text": "UI & UX Design Showcase"
                         },
