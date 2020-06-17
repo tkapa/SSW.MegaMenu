@@ -7,9 +7,14 @@
     "dist",
     "README.md"
   ],
-  "dependencies": {   
+  "dependencies": {
+    "axios": "^0.19.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "classnames": "^2.2.6"
   },
-  "devDependencies": {  
+  "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
@@ -33,13 +38,9 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9"  
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
