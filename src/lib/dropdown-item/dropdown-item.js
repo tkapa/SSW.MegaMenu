@@ -15,12 +15,12 @@ const DropdownItem = ({ item, index }) => {
             {item.level === 1 &&
                 <li key={index} className={l1Class} >
                     {item.data.navigateUrlOnMobileOnly &&
-                        <span className={'unstyled'}>
+                        <span className={cs(styles.ignore, 'unstyled')}>
                             {item.data.text}
                         </span>
                     }
                     {!item.data.navigateUrlOnMobileOnly &&
-                        <a href={item.data.navigateUrl} className={'unstyled'}>
+                        <a href={item.data.navigateUrl} className={cs(styles.ignore, 'unstyled')}>
                             {item.data.text}
                         </a>
                     }
@@ -28,7 +28,7 @@ const DropdownItem = ({ item, index }) => {
             }
             {item.level === 2 &&
                 <li key={index} className={(item.data.cssClass ? cs(styles[item.data.cssClass], styles.ClickableMenuItem, styles.level2) : cs(styles.ClickableMenuItem, styles.level2))}>
-                    <a href={item.data.navigateUrl ? item.data.navigateUrl : null} className={'unstyled'}>
+                    <a href={item.data.navigateUrl ? item.data.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
                         {item.data.text}
                     </a>
                 </li>
