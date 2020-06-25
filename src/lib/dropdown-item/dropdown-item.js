@@ -14,12 +14,12 @@ const DropdownItem = ({ item, index }) => {
         <>
             {item.level === 1 &&
                 <li key={index} className={l1Class} >
-                    {item.data.navigateUrlOnMobileOnly &&
+                    {(!item.data.navigateUrl || item.data.navigateUrlOnMobileOnly) &&
                         <span className={cs(styles.ignore, 'unstyled')}>
                             {item.data.text}
                         </span>
                     }
-                    {!item.data.navigateUrlOnMobileOnly &&
+                    {item.data.navigateUrl && !item.data.navigateUrlOnMobileOnly &&
                         <a href={item.data.navigateUrl} className={cs(styles.ignore, 'unstyled')}>
                             {item.data.text}
                         </a>
