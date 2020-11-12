@@ -20,7 +20,7 @@ const DropdownItem = ({ item, index }) => {
                         </span>
                     }
                     {item.data.navigateUrl && !item.data.navigateUrlOnMobileOnly &&
-                        <a href={item.navigateUrl ? window.location.host.indexOf('sswcomau-stage') > -1 ? item.navigateUrl.replace("www.ssw.com.au", window.location.host) : item.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
+                        <a href={item.navigateUrl ? item.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
                             {item.data.text}
                         </a>
                     }
@@ -28,7 +28,7 @@ const DropdownItem = ({ item, index }) => {
             }
             {item.level === 2 &&
                 <li key={index} className={(item.data.cssClass ? cs(styles[item.data.cssClass], styles.ClickableMenuItem, styles.level2) : cs(styles.ClickableMenuItem, styles.level2))}>
-                    <a href={item.navigateUrl ? window.location.host.indexOf('sswcomau-stage') > -1 ? item.navigateUrl.replace("www.ssw.com.au", window.location.host) : item.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
+                    <a href={item.navigateUrl ? item.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
                         {item.data.text}
                     </a>
                 </li>

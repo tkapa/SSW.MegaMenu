@@ -25,7 +25,7 @@ class DesktopMenu extends React.Component {
               <li key={index}>
                 {!item.children && (
                   <a
-                    href={item.navigateUrl ? window.location.host.indexOf('sswcomau-stage') > -1 ? item.navigateUrl.replace("www.ssw.com.au", window.location.host) : item.navigateUrl : null}
+                    href={item.navigateUrl ? item.navigateUrl : null}
                     className={cs(styles.ignore, 'unstyled')}>
                     {item.text}
                   </a>
