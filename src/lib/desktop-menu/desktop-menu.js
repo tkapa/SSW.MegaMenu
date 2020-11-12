@@ -17,6 +17,11 @@ class DesktopMenu extends React.Component {
   // }
 
   render() {
+
+    console.log(window.host.location);
+    console.log(window.location.host.indexOf('sswcomau-stage') > -1);
+    console.log(item.navigateUrl.replace("www.ssw.com.au", window.location.host));
+
     return (
       <div className={cs(styles.menuDrop, styles.hiddenXs, styles.hiddenSm)}>
         <ul>
