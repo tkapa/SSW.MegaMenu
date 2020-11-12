@@ -72,7 +72,7 @@ class MobileMenu extends React.Component {
               if (!item.children) {
                 return (
                   <li key={index} className={styles.dropdown}>
-                    <a href={item.navigateUrl} className={cs(styles.ignore, 'unstyled')}>
+                    <a href={item.navigateUrl ? window.location.host.indexOf('sswcomau-stage') > -1 ? item.navigateUrl.replace("www.ssw.com.au", window.location.host) : item.navigateUrl : null} className={cs(styles.ignore, 'unstyled')}>
                       {item.text}
                     </a>
                   </li>

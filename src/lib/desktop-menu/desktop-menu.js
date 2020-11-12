@@ -6,15 +6,15 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import MenuPanel from '../menu-panel/menu-panel'; 
 
 class DesktopMenu extends React.Component {
-  getRootUrl() {
-    if (this.props.prefix && typeof window !== 'undefined') {
-      return (
-        window.location.origin
-          ? window.location.origin + '/'
-          : window.location.protocol + '/' + window.location.host + '/') + this.props.prefix + '/';
-    }
-    return '';
-  }
+  // getRootUrl() {
+  //   if (this.props.prefix && typeof window !== 'undefined') {
+  //     return (
+  //       window.location.origin
+  //         ? window.location.origin + '/'
+  //         : window.location.protocol + '/' + window.location.host + '/') + this.props.prefix + '/';
+  //   }
+  //   return '';
+  // }
 
   render() {
     return (
@@ -25,7 +25,7 @@ class DesktopMenu extends React.Component {
               <li key={index}>
                 {!item.children && (
                   <a
-                    href={item.navigateUrl ? item.navigateUrl : null}
+                    href={item.navigateUrl ? window.location.host.indexOf('sswcomau-stage') > -1 ? item.navigateUrl.replace("www.ssw.com.au", window.location.host) : item.navigateUrl : null}
                     className={cs(styles.ignore, 'unstyled')}>
                     {item.text}
                   </a>
