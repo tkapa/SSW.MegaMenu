@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: On-Premise # Runs on OnPrem Windows (for now)
+  name: $(buildPoolName) # Runs on OnPrem Windows (for now)
   demands:
     - Agent.Name -equals $(buildAgentName)
 
