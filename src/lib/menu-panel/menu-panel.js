@@ -13,7 +13,6 @@ const MenuPanel = ({ item, prefix }) => {
         }
         return '';
     }
-    console.error(require("../images/" + item.groupImageUrl).default);
     return (
         <>
             <div className={styles.MenuImg}>
