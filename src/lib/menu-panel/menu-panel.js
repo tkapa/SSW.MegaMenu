@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './menu-panel.module.css';
+import { MenuImg } from './menu-panel.module.css';
 import Dropdown from '../dropdown/dropdown';
 
 
@@ -15,7 +15,7 @@ const MenuPanel = ({ item, prefix }) => {
     }
     return (
         <>
-            <div className={styles.MenuImg}>
+            <div className={MenuImg}>
                 <img src={getRootUrl() + require("../images/" + item.groupImageUrl).default} alt={item.text} loading="eager" />
             </div>
             <Dropdown items={item.children}></Dropdown>

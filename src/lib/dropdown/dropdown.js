@@ -1,6 +1,6 @@
 import React from 'react';
 import DropdownItem from '../dropdown-item/dropdown-item'
-import styles from './dropdown.module.css';
+import {colMd3, MenuWrapper} from './dropdown.module.css';
 
 const Dropdown = ({ items }) => {
     const CountChildren = (items) => {
@@ -45,7 +45,7 @@ const Dropdown = ({ items }) => {
 
         return (
             blocks.map((column, index) => {
-                return (<ul key={index} className={styles.colMd3}>
+                return (<ul key={index} className={colMd3}>
                     {
                         column.map((item, index) => {
                             return <DropdownItem key={index} item={item}></DropdownItem>;
@@ -57,7 +57,7 @@ const Dropdown = ({ items }) => {
     }
 
     return (
-        <div className={styles.MenuWrapper}>{createDropDown(items)}</div>
+        <div className={MenuWrapper}>{createDropDown(items)}</div>
     );
 }
 
