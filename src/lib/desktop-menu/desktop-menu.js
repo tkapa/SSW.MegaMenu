@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import styles from './desktop-menu.module.css';
+import React from 'react';
+import {menuDrop, hiddenSm, hiddenXs, ignore, Menu} from './desktop-menu.module.css';
 import cs from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +18,7 @@ class DesktopMenu extends React.Component {
 
   render() {
     return (
-      <div className={cs(styles.menuDrop, styles.hiddenXs, styles.hiddenSm)}>
+      <div className={cs(menuDrop, hiddenXs, hiddenSm)}>
         <ul>
           {this.props.menuModel && this.props.menuModel.menuItems.map((item, index) => {
             return (
@@ -26,16 +26,16 @@ class DesktopMenu extends React.Component {
                 {!item.children && (
                   <a
                     href={item.navigateUrl ? item.navigateUrl : null}
-                    className={cs(styles.ignore, 'unstyled')}>
+                    className={cs(ignore, 'unstyled')}>
                     {item.text}
                   </a>
                 )}{' '}
                 {item.children && (
                   <>
-                    <a className={cs(styles.ignore, 'unstyled')}>
+                    <a className={cs(ignore, 'unstyled')}>
                       {item.text} <FontAwesomeIcon icon={faAngleDown} />
                     </a>
-                    <div className={styles.Menu}>
+                    <div className={Menu}>
                         <MenuPanel item={item} prefix={this.props.prefix}/> 
                     </div>                            
                   </>
