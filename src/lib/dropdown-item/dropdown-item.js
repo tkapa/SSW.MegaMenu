@@ -21,6 +21,8 @@ const DropdownItem = ({ item, index }) => {
     : item.data.cssClass
     ? cs(styles[item.data.cssClass], level1)
     : level1;
+  
+  console.log(item);
 
   return (
     <>
@@ -31,7 +33,7 @@ const DropdownItem = ({ item, index }) => {
           )}
           {item.data.navigateUrl && !item.data.navigateUrlOnMobileOnly && (
             <a
-              href={item.navigateUrl ? item.navigateUrl : null}
+              href={item.data.navigateUrl ? item.data.navigateUrl : null}
               className={cs(ignore, "unstyled")}
             >
               {item.data.text}
@@ -49,7 +51,7 @@ const DropdownItem = ({ item, index }) => {
           }
         >
           <a
-            href={item.navigateUrl ? item.navigateUrl : null}
+            href={item.data.navigateUrl ? item.data.navigateUrl : null}
             className={cs(ignore, "unstyled")}
           >
             {item.data.text}
