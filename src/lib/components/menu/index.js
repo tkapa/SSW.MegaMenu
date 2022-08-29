@@ -9,7 +9,7 @@ import {
   menuSearch,
   searchBox,
 } from "./index.module.css";
-import DesktopMenu from "../desktop-menu";
+import DesktopMenu from "./desktop-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import cs from "classnames";

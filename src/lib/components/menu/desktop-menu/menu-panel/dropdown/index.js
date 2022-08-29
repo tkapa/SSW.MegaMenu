@@ -1,5 +1,5 @@
 import React from 'react';
-import DropdownItem from '../dropdown-item'
+import DropdownItem from './dropdown-item'
 import {colMd3, MenuWrapper} from './index.module.css';
 
 const Dropdown = ({ items }) => {
