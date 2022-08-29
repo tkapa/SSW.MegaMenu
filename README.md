@@ -13,8 +13,8 @@ Example of implementation:
 
 ```
 import React, { useState, useRef } from 'react';
-import Menu from './lib/menu/menu';
-import MobileMenu from './lib/mobile-menu/mobile-menu';
+import Menu from './lib/components/menu';
+import MobileMenu from './lib/components/mobile-menu';
 import './App.css';
 
 function App() {
@@ -23,9 +23,9 @@ function App() {
 
   const actionOnToggleClick = () => {
     setIsMenuOpened(!isMenuOpened);
-  }
+  };
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (node.current.contains(e.target)) {
       setIsMenuOpened(false);
     }
@@ -33,17 +33,19 @@ function App() {
 
   return (
     <>
-      <div ref={node} className="App"
-        onMouseDown = {isMenuOpened ? (event) => handleClick(event) : null}
-        style = {{transform : isMenuOpened ? "translateX(84%)" : "translateX(0px)"}}
-        >
-        <header className="App-header">
-          Test MegaMenu
-        </header>
-        <Menu onClickToggle= {() => actionOnToggleClick() }></Menu>
+      <div
+        ref={node}
+        className="App"
+        onMouseDown={isMenuOpened ? (event) => handleClick(event) : null}
+        style={{
+          transform: isMenuOpened ? 'translateX(84%)' : 'translateX(0px)',
+        }}
+      >
+        <header className="App-header">Test MegaMenu</header>
+        <Menu onClickToggle={() => actionOnToggleClick()} prefix="."></Menu>
         <div> Some content</div>
       </div>
-      <MobileMenu isMenuOpened= {isMenuOpened}></MobileMenu>
+      <MobileMenu isMenuOpened={isMenuOpened}></MobileMenu>
     </>
   );
 }
@@ -51,7 +53,7 @@ function App() {
 
 ### Menu content
 
-The menu items are in /src/lib/data/menu.json.
+The menu items are in /src/lib/assets/data/menu.json.
 This is the file to modify when you want to add/remove items from the menu.
 
 ## Available Scripts
