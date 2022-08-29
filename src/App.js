@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Menu from './lib/components/menu';
-import MobileMenu from './lib/components/mobile-menu';
+import { Menu, MobileMenu } from './lib';
 import './App.css';
 
 function App() {
