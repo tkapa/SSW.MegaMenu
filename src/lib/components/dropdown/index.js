@@ -1,6 +1,6 @@
 import React from 'react';
-import DropdownItem from '../dropdown-item/dropdown-item'
-import {colMd3, MenuWrapper} from './dropdown.module.css';
+import DropdownItem from '../dropdown-item'
+import {colMd3, MenuWrapper} from './index.module.css';
 
 const Dropdown = ({ items }) => {
     const CountChildren = (items) => {

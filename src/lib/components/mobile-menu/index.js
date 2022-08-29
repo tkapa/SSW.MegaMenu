@@ -10,7 +10,7 @@ import {
   dropdownToggle,
   dropdownMenu,
   navbarNav,
-} from "./mobile-menu.module.css";
+} from "./index.module.css";
 import cs from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";

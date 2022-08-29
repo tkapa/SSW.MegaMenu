@@ -1,6 +1,6 @@
 import React from 'react';
-import { MenuImg } from './menu-panel.module.css';
-import Dropdown from '../dropdown/dropdown';
+import { MenuImg } from './index.module.css';
+import Dropdown from '../dropdown';
 
 
 const MenuPanel = ({ item, prefix }) => {
@@ -16,7 +16,7 @@ const MenuPanel = ({ item, prefix }) => {
     return (
         <>
             <div className={MenuImg}>
-                <img src={getRootUrl() + require("../images/" + item.groupImageUrl).default} alt={item.text} loading="eager" />
+                <img src={getRootUrl() + require("../../assets/images/" + item.groupImageUrl).default} alt={item.text} loading="eager" />
             </div>
             <Dropdown items={item.children}></Dropdown>
         </>

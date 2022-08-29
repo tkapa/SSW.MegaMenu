@@ -8,8 +8,8 @@ import {
   sbToggleLeft,
   menuSearch,
   searchBox,
-} from "./menu.module.css";
-import DesktopMenu from "../desktop-menu/desktop-menu";
+} from "./index.module.css";
+import DesktopMenu from "../desktop-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import cs from "classnames";
@@ -63,7 +63,7 @@ class Wrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuModel: require("../data/menu.json"),
+      menuModel: require("../../assets/data/menu.json"),
       menuLoaded: false,
     };
   }

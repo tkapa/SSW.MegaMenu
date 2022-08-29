@@ -5,7 +5,7 @@ import {
   level2,
   ignore,
   ClickableMenuItem,
-} from "./dropdown-item.module.css";
+} from "./index.module.css";
 import cs from "classnames";
 
 const DropdownItem = ({ item, index }) => {
