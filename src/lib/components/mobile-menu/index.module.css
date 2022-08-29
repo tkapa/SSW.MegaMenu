@@ -107,7 +107,7 @@
 }
 .menuDrop ul li.open ul.dropdownMenu ul {
   padding: 0;
-  background: #AAAAAA;
+  background: #aaaaaa;
   position: static;
   float: none;
   width: auto;

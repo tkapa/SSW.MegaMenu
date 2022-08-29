@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   dropdown,
   open,
@@ -10,11 +10,11 @@ import {
   dropdownToggle,
   dropdownMenu,
   navbarNav,
-} from "./index.module.css";
-import cs from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+} from './index.module.css';
+import cs from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 class MobileMenu extends React.Component {
   //const DesktopMenu = ({prefix}) => {
@@ -27,7 +27,7 @@ class MobileMenu extends React.Component {
     if (!this.state.menuModel) {
       let currentComponent = this;
       axios
-        .get("https://SSWConsulting.github.io/SSW.Website.Menu.json/menu.json")
+        .get('https://SSWConsulting.github.io/SSW.Website.Menu.json/menu.json')
         .then(function (response) {
           currentComponent.setState({ menuModel: response.data });
         })
@@ -44,8 +44,7 @@ class MobileMenu extends React.Component {
   closeOpenedElements(element) {
     var openedItems = document.getElementsByClassName(cs(dropdown, open));
     for (let item of openedItems) {
-      if(item !== element.parentNode?.parentNode)
-      {
+      if (item !== element.parentNode?.parentNode) {
         item.className = dropdown;
       }
     }
@@ -82,7 +81,7 @@ class MobileMenu extends React.Component {
         <li key={index} className={dropdown}>
           <a
             href={item.navigateUrl ? item.navigateUrl : null}
-            className={cs(ignore, "unstyled")}
+            className={cs(ignore, 'unstyled')}
           >
             {item.text}
           </a>
@@ -91,12 +90,12 @@ class MobileMenu extends React.Component {
     } else if (item.children) {
       return (
         <li key={index} className={dropdown}>
-          <a className={cs(dropdownToggle, "unstyled")}>
+          <a className={cs(dropdownToggle, 'unstyled')}>
             {item.text} <FontAwesomeIcon icon={faAngleDown} />
           </a>
           <ul className={dropdownMenu}>
             {item.children.map((item, index) => {
-              return this.renderMenuItems(item, index)
+              return this.renderMenuItems(item, index);
             })}
           </ul>
         </li>
@@ -108,14 +107,14 @@ class MobileMenu extends React.Component {
     return (
       <div
         className={cs(sbSlidebar, sbLeft)}
-        style={{ width: this.props.isMenuOpened ? "84vw" : "0px" }}
+        style={{ width: this.props.isMenuOpened ? '84vw' : '0px' }}
         onClick={(event) => this.openItem(event)}
       >
         <div className={cs(menuDrop, navbarCollapse)}>
           <ul className={navbarNav}>
             {this.state.menuModel &&
               this.state.menuModel.menuItems.map((item, index) => {
-                return this.renderMenuItems(item, index)
+                return this.renderMenuItems(item, index);
               })}
           </ul>
         </div>
