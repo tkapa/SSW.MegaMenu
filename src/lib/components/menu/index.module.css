@@ -30,13 +30,13 @@
 
 @media (min-width: 600px) and (max-width: 1279px) {
   .MegaMenu {
-    width: 95%
+    width: 95%;
   }
 }
 
 @media (min-width: 1280px) {
   .MegaMenu {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -94,8 +94,8 @@
   right: 0;
 }
 .menuSearch input.searchBox[type='text'] {
-  background: url('https://ssw.com.au/ssw/include/pigeon/img/svg-sprite-sheet.svg') no-repeat scroll -2px -68px
-    #9e9e9e;
+  background: url('https://ssw.com.au/ssw/include/pigeon/img/svg-sprite-sheet.svg')
+    no-repeat scroll -2px -68px #9e9e9e;
   border: medium none;
   color: #9e9e9e;
   height: 26px;

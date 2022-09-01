@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   MegaMenu,
   menuContent,
@@ -8,12 +8,12 @@ import {
   sbToggleLeft,
   menuSearch,
   searchBox,
-} from "./menu.module.css";
-import DesktopMenu from "../desktop-menu/desktop-menu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import cs from "classnames";
-import axios from "axios";
+} from './index.module.css';
+import DesktopMenu from './desktop-menu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import cs from 'classnames';
+import axios from 'axios';
 
 const searchUrl = `https://www.google.com.au/search?q=site:ssw.com.au%20`;
 class Menu extends React.Component {
@@ -24,7 +24,7 @@ class Menu extends React.Component {
   }
 
   handleKeyDownOnMenuSearchInput(event) {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       this.menu_Search(event.target.value);
     }
   }
@@ -63,7 +63,7 @@ class Wrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuModel: require("../data/menu.json"),
+      menuModel: require('../../assets/data/menu.json'),
       menuLoaded: false,
     };
   }
@@ -71,7 +71,7 @@ class Wrapper extends React.Component {
   componentDidMount() {
     let currentComponent = this;
     axios
-      .get("https://SSWConsulting.github.io/SSW.Website.Menu.json/menu.json")
+      .get('https://SSWConsulting.github.io/SSW.Website.Menu.json/menu.json')
       .then(function (response) {
         currentComponent.setState({ menuModel: response.data });
       })
