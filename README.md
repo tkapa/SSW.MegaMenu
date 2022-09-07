@@ -11,7 +11,7 @@ The Megame Menu is split in 2 components to give more freedom on how the mobile 
 
 Example of implementation:
 
-```
+```jsx
 import React, { useState, useRef } from 'react';
 import { Menu, MobileMenu } from './lib';
 import './App.css';
