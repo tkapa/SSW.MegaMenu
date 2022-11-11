@@ -22,8 +22,6 @@ const DropdownItem = ({ item, index }) => {
     ? cs(styles[item.data.cssClass], level1)
     : level1;
 
-  console.log(item);
-
   return (
     <>
       {item.level === 1 && (
