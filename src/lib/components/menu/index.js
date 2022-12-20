@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  MegaMenu,
-  menuContent,
-  menuMobile,
-  visibleXs,
-  visibleSm,
-  sbToggleLeft,
-  menuSearch,
-  searchBox,
-} from './index.module.css';
+import styles from './index.module.css';
 import DesktopMenu from './desktop-menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -33,11 +24,11 @@ class Menu extends React.Component {
     const { menuModel } = this.props;
     return (
       // this.state.menuModel &&
-      <div className={MegaMenu}>
-        <div className={menuContent}>
-          <div className={cs(menuMobile, visibleXs, visibleSm)}>
+      <div className={styles.MegaMenu}>
+        <div className={styles.menuContent}>
+          <div className={cs(styles.menuMobile, styles.visibleXs, styles.visibleSm)}>
             <div
-              className={sbToggleLeft}
+              className={styles.sbToggleLeft}
               onClick={() => this.props.onClickToggle()}
             >
               <FontAwesomeIcon icon={faBars} />
@@ -47,10 +38,10 @@ class Menu extends React.Component {
             prefix={this.props.prefix}
             menuModel={menuModel}
           ></DesktopMenu>
-          <div className={menuSearch}>
+          <div className={styles.menuSearch}>
             <input
               type="text"
-              className={searchBox}
+              className={styles.searchBox}
               onKeyDown={(event) => this.handleKeyDownOnMenuSearchInput(event)}
             />
           </div>

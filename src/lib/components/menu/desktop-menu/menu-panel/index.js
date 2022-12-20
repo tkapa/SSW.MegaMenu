@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuImg } from './index.module.css';
+import styles from './index.module.css';
 import Dropdown from './dropdown';
 
 const MenuPanel = ({ item, prefix }) => {
@@ -17,7 +17,7 @@ const MenuPanel = ({ item, prefix }) => {
   };
   return (
     <>
-      <div className={MenuImg}>
+      <div className={styles.MenuImg}>
         <img
           src={
             getRootUrl() +
