@@ -19,10 +19,7 @@ const MenuPanel = ({ item, prefix }) => {
     <>
       <div className={styles.MenuImg}>
         <img
-          src={
-            getRootUrl() +
-            require('../../../../assets/images/' + item.groupImageUrl).default
-          }
+          src={item.src}
           alt={item.text}
           loading="eager"
         />
