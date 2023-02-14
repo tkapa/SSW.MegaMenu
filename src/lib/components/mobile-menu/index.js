@@ -78,9 +78,9 @@ class MobileMenu extends React.Component {
     } else if (item.children) {
       return (
         <li key={index} className={styles.dropdown}>
-          <a className={cs(styles.dropdownToggle, 'unstyled')}>
+          <div role="presentation" className={cs(styles.dropdownToggle)}>
             {item.text} <FontAwesomeIcon icon={faAngleDown} />
-          </a>
+          </div>
           <ul className={styles.dropdownMenu}>
             {item.children.map((item, index) => {
               return this.renderMenuItems(item, index);
