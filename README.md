@@ -1,19 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-**Important: Before to push your changes, you need to increment the version number in the file package.json**
-
 ## How to use the Mega Menu
 
-The Megame Menu is split in 2 components to give more freedom on how the mobile menu interact with the website. The 2 components are:
+### Installation
 
-- Menu: this component is used to display the desktop menu
-- Mobile menu: this component is used to display the mobile menu
+1. install package
+```bash
+npm install ssw.megamenu
+```
+2. import global styles
+```javascript
+import "ssw.megamenu/dist/style.css";
+```
+3. use components in your project
+```javascript
+// commonjs
+const { Menu, MobileMenu, MenuBar } = require('ssw.megamenu');
+// es module
+import { Menu, MobileMenu, MenuBar } from 'ssw.megamenu';
+```
 
-Example of implementation:
+### Usage
+
+The Megame Menu is split in 3 components to give more freedom on how the mobile menu interact with the website.
+
+The 3 components are:
+
+- `<Menu />`: this component is used to display the desktop menu
+- `<MobileMenu />`: this component is used to display the mobile menu
+- `<MenuBar />` [Recommended]: this component is a ready-to-use menu using `<Menu />` and `<MobileMenu />`
+
+#### Example of implementation:
+
+1. With `<MenuBar />`
 
 ```jsx
 import React, { useState, useRef } from 'react';
-import { Menu, MobileMenu } from './lib';
+import { Menu, MobileMenu } from 'ssw.megamenu';
+import './App.css';
+
+function App() {
+  return (
+    <MenuBar
+      className="App"
+      header={<header className="App-header">Test MenuBar</header>}
+    >
+      <div>Some content</div>
+    </MenuBar>
+  );
+}
+
+```
+
+2. With `<Menu />` and `<MobileMenu />`
+
+```jsx
+import React, { useState, useRef } from 'react';
+import { Menu, MobileMenu } from 'ssw.megamenu';
 import './App.css';
 
 function App() {
@@ -50,27 +91,30 @@ function App() {
 }
 ```
 
-### Menu content
+### Static assets
 
-The menu items are in /src/lib/assets/data/menu.json.
-This is the file to modify when you want to add/remove items from the menu.
+1. Menu items | /lib/assets/data/menu.json
+2. Images | /lib/assets/images/*
 
-## Available Scripts
+## How to contribute?
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn dev`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `yarn build`
 
-Builds the app for production to the `dist` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the lib for production to the `dist` folder.<br />
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### How to publish?
+
+1. **Important: Before to push your changes, you need to increment the version number in the file package.json**
+2. Make a pull request to integrate your code into the main branch.
+3. Get the pull request approved
+4. Merged your code into main branch
+5. Package published by github actions
