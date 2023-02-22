@@ -1,0 +1,4 @@
+{
+  "vitest.commandLine": "yarn test --",
+  "vitest.enable": true
+}
