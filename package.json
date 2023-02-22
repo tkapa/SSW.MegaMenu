@@ -3,10 +3,12 @@
   "version": "3.1.0",
   "files": [
     "dist",
+    "types",
     "README.md"
   ],
   "main": "dist/megamenu.js",
   "module": "dist/megamenu.mjs",
+  "types": "types/index.d.ts",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -35,6 +37,7 @@
     "react-dom": "^18.2.0",
     "stylelint": "^14.16.1",
     "stylelint-config-recommended": "^9.0.0",
+    "typescript": "^4.9.5",
     "vite": "^4.1.0",
     "vitest": "^0.28.5"
   },
@@ -44,7 +47,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "lint:scripts": "eslint --ignore-path .gitignore --max-warnings=0 ./lib --ext ts --ext tsx --ext js --ext jsx",
     "lint:styles": "stylelint ./lib/**/*.css",
     "format:scripts": "prettier ./lib --write",
