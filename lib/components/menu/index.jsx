@@ -42,7 +42,7 @@ class Menu extends React.Component {
           >
             <div
               className={styles.sbToggleLeft}
-              onClick={() => this.props.onClickToggle()}
+              onClick={(e) => this.props.onClickToggle(e)}
             >
               <FontAwesomeIcon icon={faBars} />
             </div>
