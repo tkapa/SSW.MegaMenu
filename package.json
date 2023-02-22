@@ -1,56 +1,57 @@
 {
   "name": "ssw.megamenu",
-  "version": "3.0.5",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "version": "3.1.0",
   "files": [
     "dist",
     "README.md"
   ],
-  "dependencies": {
+  "main": "dist/megamenu.js",
+  "module": "dist/megamenu.mjs",
+  "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "classnames": "^2.3.2",
-    "string_decoder": "^1.1.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.19.3",
-    "@babel/core": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/runtime": "^7.20.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "babel-preset-react-app": "^10.0.1",
-    "create-react-app": "^5.0.1",
-    "cross-env": "^7.0.3",
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "@vitest/coverage-c8": "^0.28.5",
+    "classnames": "^2.3.2",
+    "cross-fetch": "^3.1.5",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
+    "jsdom": "^21.1.0",
     "prettier": "2.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "rimraf": "^3.0.2"
+    "stylelint": "^14.16.1",
+    "stylelint-config-recommended": "^9.0.0",
+    "vite": "^4.1.0",
+    "vitest": "^0.28.5"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "npm run prebuild && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint --ignore-path .gitignore --max-warnings=0 . --ext ts --ext tsx --ext js --ext jsx",
-    "format": "yarn prettier --write .",
-    "prebuild": "rimraf dist"
+    "dev": "vite",
+    "build": "vite build",
+    "lint:scripts": "eslint --ignore-path .gitignore --max-warnings=0 ./lib --ext ts --ext tsx --ext js --ext jsx",
+    "lint:styles": "stylelint ./lib/**/*.css",
+    "format:scripts": "prettier ./lib --write",
+    "format:styles": "stylelint ./lib/**/*.css --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "eslintConfig": {
     "extends": [
