@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Menu, MobileMenu } from './lib';
+import { Menu, MobileMenu, MenuBar } from '../lib';
 import './App.css';
 
 function App() {
@@ -18,6 +18,10 @@ function App() {
 
   return (
     <>
+      <header className="App-header">Test MenuBar</header>
+      <MenuBar className="App" />
+      <div>Some content</div>
+
       <div
         ref={node}
         className="App"
@@ -26,9 +30,9 @@ function App() {
           transform: isMenuOpened ? 'translateX(84%)' : 'translateX(0px)',
         }}
       >
-        <header className="App-header">Test MegaMenu</header>
+        <header className="App-header">Test Menu and MobileMenu</header>
         <Menu onClickToggle={() => actionOnToggleClick()} prefix="."></Menu>
-        <div> Some content</div>
+        <div>Some content</div>
       </div>
       <MobileMenu isMenuOpened={isMenuOpened}></MobileMenu>
     </>

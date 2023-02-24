@@ -94,7 +94,8 @@ class MobileMenu extends React.Component {
   render() {
     return (
       <div
-        className={cs(styles.sbSlidebar, styles.sbLeft)}
+        ref={this.props.innerRef}
+        className={cs(styles.sbSlidebar, styles.sbLeft, this.props.className)}
         style={{ width: this.props.isMenuOpened ? '84vw' : '0px' }}
         onClick={(event) => this.openItem(event)}
       >
@@ -110,4 +111,4 @@ class MobileMenu extends React.Component {
     );
   }
 }
-export default MobileMenu;
+export default React.forwardRef((props, ref) => <MobileMenu innerRef={ref} {...props} />);
